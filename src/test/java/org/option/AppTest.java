@@ -1,12 +1,9 @@
 package org.option;
 
-import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 import org.option.doublepointer.RotateArray;
-import org.option.doublepointer.SquaresOfaSortedArray;
 
-import java.util.Arrays;
 
 public class AppTest {
     @Test
@@ -14,5 +11,8 @@ public class AppTest {
         int[] i = {-4,-1,0,3,10};
         int[] j = {1};
         new RotateArray().rotate(i, 11);
+        System.out.println(new RotateArray().gcd(2, 6));
+
     }
+
 }
