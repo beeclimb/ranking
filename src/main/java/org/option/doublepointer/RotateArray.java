@@ -1,7 +1,5 @@
 package org.option.doublepointer;
 
-import java.util.Arrays;
-
 /**
  * @author Jun
  * @date 2021/11/25
@@ -47,6 +45,25 @@ public class RotateArray {
         return y > 0 ? gcd(y, x % y) : x;
     }
 
+    public void rotate3(int[] nums, int k) {
+        k = k % nums.length;
+        reverseArray(nums, 0, nums.length - 1);
+        reverseArray(nums, 0, k - 1);
+        reverseArray(nums, k, nums.length - 1);
+    }
 
+    public void reverseArray(int[] array, int startIndex, int endIndex) {
+        int length = endIndex - startIndex + 1;
+        int threshold = (length >> 1) - 1;
+        int temp, j;
+        for (int i = 0; i <= threshold; ) {
+            j = length - 1 - i;
+            temp = array[j + startIndex];
+            array[j + startIndex] = array[i + startIndex];
+            array[i + startIndex] = temp;
+            ++i;
+        }
+
+    }
 
 }
