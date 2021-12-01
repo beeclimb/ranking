@@ -26,17 +26,3 @@ public class SearchInsertPosition {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,7 +1,5 @@
 package org.option.doublepointer;
 
-import java.util.Arrays;
-
 /**
  * @author Jun
  * @date 2021/11/26
