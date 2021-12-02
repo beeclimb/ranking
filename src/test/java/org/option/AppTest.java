@@ -12,7 +12,9 @@ public class AppTest {
     @Test
     public void test() {
         int[] i = {-1, 0};
-        System.out.println(Arrays.toString(new TwoSumInputArrayIsSorted().twoSum(i, -1)));
+        int[] i1 = {2,7,11,15};
+        int[] i2 = {5,25,75};
+        System.out.println(Arrays.toString(new TwoSumInputArrayIsSorted().twoSum(i2, 100)));
 
     }
 
