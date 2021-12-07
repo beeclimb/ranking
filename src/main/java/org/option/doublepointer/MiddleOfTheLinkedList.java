@@ -11,9 +11,12 @@ public class MiddleOfTheLinkedList {
         int nodeCounts = 1;
         while (fast.next != null) {
             fast = fast.next;
-            if (nodeCounts % 2)
-
+            ++nodeCounts;
+            if (nodeCounts % 2 == 0) {
+                slow = slow.next;
+            }
         }
+        return slow;
     }
 }
 
