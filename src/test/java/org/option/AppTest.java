@@ -14,8 +14,8 @@ import java.util.Arrays;
 public class AppTest {
     @Test
     public void test() {
-        String s = "bpfbhmipx";
-        System.out.println(new LongestSubstringWithoutRepeatingCharacters().lengthOfLongestSubstring(s));
+        String s = "aabaab!bb";
+        System.out.println(new LongestSubstringWithoutRepeatingCharacters().lengthOfLongestSubstring2(s));
 
 
     }
