@@ -1,8 +1,6 @@
 package org.option.slidingwindow;
 
-import java.awt.image.renderable.RenderableImage;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.Arrays;
 
 /**
  * @author Jun
@@ -11,28 +9,25 @@ import java.util.HashSet;
  */
 public class PermutationInString {
     public boolean checkInclusion(String s1, String s2) {
-        HashSet<Character> set1 = new HashSet<>(s1.length());
-        for (int i = 0; i < s1.length(); i++) {
-            set1.add(s1.charAt(i));
+        if (s1.length() > s2.length()) {
+            return false;
         }
-        int left = 0, right = 0;
-        Character rightValue;
-        while (left < s2.length()) {
-            while (right < left + s1.length() && right < s2.length()) {
-                rightValue = s2.charAt(right);
-                if (set1.contains(rightValue)) {
-                    set1.remove(rightValue);
-                    } else {
-                        set2.clear();
-                        ++left;
-                        break;
-                    }
-                } else {
-                    left = 2 * right - left + 1;
-                    break;
-                }
+        int[] s1CharCounts = new int[26];
+        int[] s2SlidingWindowCharCount = new int[26];
+
+        for (int i = 0; i < s1.length(); ++i) {
+            ++s1CharCounts[s1.charAt(i) - 97];
+            ++s2SlidingWindowCharCount[s2.charAt(i) - 97];
+        }
+        if (Arrays.equals(s1CharCounts, s2SlidingWindowCharCount)) {
+            return true;
+        }
+        for (int i = s1.length(); i < s2.length(); ++i) {
+            ++s2SlidingWindowCharCount[s2.charAt(i) - 97];
+            --s2SlidingWindowCharCount[s2.charAt(i - s1.length()) - 97];
+            if (Arrays.equals(s1CharCounts, s2SlidingWindowCharCount)) {
+                return true;
             }
-            right = left;
         }
         return false;
     }
