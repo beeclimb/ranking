@@ -31,4 +31,70 @@ public class PermutationInString {
         }
         return false;
     }
+
+    public boolean checkInclusion2(String s1, String s2) {
+        if (s1.length() > s2.length()) {
+            return false;
+        }
+        int[] window = new int[26];
+        for (int i = 0; i < s1.length(); ++i) {
+            --window[s1.charAt(i) - 97];
+            ++window[s2.charAt(i) - 97];
+        }
+        int diff = 0;
+        for (int i : window) {
+            if (i != 0) {
+                ++diff;
+            }
+        }
+        if (diff == 0) {
+            return true;
+        }
+        for (int i = s1.length(); i < s2.length(); ++i) {
+            int in = s2.charAt(i) - 97;
+            int out = s2.charAt(i - s1.length()) - 97;
+            if (window[in] == 0) {
+                ++diff;
+            }
+            ++window[in];
+            if (window[in] == 0) {
+                --diff;
+            }
+            if (window[out] == 0) {
+                ++diff;
+            }
+            --window[out];
+            if (window[out] == 0) {
+                --diff;
+            }
+            if (diff == 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean checkInclusion3(String s1, String s2) {
+        if (s1.length() > s2.length()) {
+            return false;
+        }
+        int[] window = new int[26];
+        for (int i = 0; i <s1.length(); ++i) {
+            --window[s1.charAt(i) - 97];
+        }
+        int left = 0;
+        for (int right = 0; right < s2.length(); ++right) {
+            int in = s2.charAt(right) - 97;
+            ++window[in];
+            while (window[in] > 0) {
+                --window[s2.charAt(left) - 97];
+                ++left;
+            }
+            if ((right - left + 1) == s1.length()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
