@@ -2,6 +2,7 @@ package org.option;
 
 
 import org.junit.Test;
+import org.option.depthbreadth.FloodFill;
 import org.option.doublepointer.MoveZeroes;
 import org.option.doublepointer.ReverseString;
 import org.option.doublepointer.ReverseWordsInStringIII;
@@ -15,10 +16,12 @@ import java.util.Arrays;
 public class AppTest {
     @Test
     public void test() {
-        String s1 =  "abcdxabcde";
-        String s2 =    "abcdeabcdx";
+        int[][] array = new int[][]{
+                {0, 0, 0},
+                {0, 1, 1}
+        };
 
-        System.out.println(new PermutationInString().checkInclusion(s1, s2));
+        System.out.println(Arrays.deepToString(new FloodFill().floodFill(array, 1, 1, 1)));
 
 
     }
