@@ -34,4 +34,15 @@ public class AppTest {
 
     }
 
+    @Test
+    public void fTest() {
+        System.out.println(f(5));
+    }
+
+    public int f(int n) {
+        if (n == 1) {
+            return 1;
+        }
+        return f(n - 1) + 1;
+    }
 }
