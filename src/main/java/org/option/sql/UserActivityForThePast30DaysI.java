@@ -7,8 +7,8 @@ package org.option.sql;
  */
 public class UserActivityForThePast30DaysI {
     String sql = "select activity_date as day, count(distinct user_id) as active_users\n" +
-            "from Activity where datediff('2019-07-27', activity_date) < 30 and datediff('2019-07-27', activity_date) >= 0\n" +
-            "group by activity_date\n" +
-            "order by activity_date;";
+                "from Activity where datediff('2019-07-27', activity_date) < 30 and datediff('2019-07-27', activity_date) >= 0\n" +
+                "group by activity_date\n" +
+                "order by activity_date;";
 
 }
