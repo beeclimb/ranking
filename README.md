@@ -1,2 +1,2 @@
 # ranking
-LeetCode刷题记录
+算法记录
