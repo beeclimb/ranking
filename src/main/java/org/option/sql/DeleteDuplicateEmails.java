@@ -3,7 +3,7 @@ package org.option.sql;
 /**
  * @author jun.ma
  * @date 2022/6/28
- * @leetcode Delete Duplicate Emails
+ * @leetcode 196. Delete Duplicate Emails
  */
 public class DeleteDuplicateEmails {
     String sql = "DELETE p1 FROM Person p1,\n" +
