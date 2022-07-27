@@ -63,17 +63,55 @@ public class DoubleLinkedListToDeque {
             ++size;
         }
 
+        public V pollHead() {
+            V ans = null;
+            if (head == null) {
+                return ans;
+            }
+            --size;
+            ans = head.value;
+            if (head == tail) {
+                head = null;
+                tail = null;
+            } else {
+                head = head.next;
+                head.last = null;
+            }
+            return ans;
+        }
+
+        public V pollTail() {
+            V ans = null;
+            if (head == null) {
+                return ans;
+            }
+            --size;
+            ans = tail.value;
+            if (head == tail) {
+                head = null;
+                tail = null;
+            } else {
+                tail = tail.last;
+                tail.next = null;
+            }
+            return ans;
+        }
+
+        public V peekHead() {
+            V ans = null;
+            if (head != null) {
+                ans = head.value;
+            }
+            return ans;
+        }
+
+        public V peekTail() {
+            V ans = null;
+            if (tail != null) {
+                ans = tail.value;
+            }
+            return ans;
+        }
     }
-
-
-
-
-
-
-
-
-
-
-
 
 }
