@@ -5,7 +5,7 @@ package github.beeclimb.linkedlist;
  * @date 2022/7/28 22:01:00
  * @leetcode 25. Reverse Nodes in k-Group
  */
-public class ReverseNodesInkGroup25 {
+public class ReverseNodesInkGroup_25 {
 
     public static class ListNode {
         int val;
