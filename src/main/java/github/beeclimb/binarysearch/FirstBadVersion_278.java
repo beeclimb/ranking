@@ -5,7 +5,7 @@ package github.beeclimb.binarysearch;
  * @date 2021/11/23
  * @leetcode 278. First Bad Version
  */
-public class FirstBadVersion {
+public class FirstBadVersion_278 {
     public int firstBadVersion(int n) {
         int left, right, reference = 0;
         left = 1;

@@ -5,9 +5,8 @@ package github.beeclimb.binarysearch;
  * @date 2021/11/22
  * @leetcode 704. Binary Search
  */
-public class BinarySearch {
+public class BinarySearch_704 {
     public int search(int[] nums, int target) {
-
         int length, head, tail, referencePoint, reference;
         head = 0;
         tail = nums.length - 1;
@@ -34,7 +33,25 @@ public class BinarySearch {
         } while (head != -1);
 
         return head;
-
     }
 
+    /**
+     * 经典二分
+     * 边界条件：head <= tail
+     */
+    public int search1(int[] nums, int target) {
+        int head = 0;
+        int tail = nums.length - 1;
+        while (head <= tail) {
+            int mid = (tail - head) / 2 + head;
+            if (nums[mid] == target) {
+                return mid;
+            } else if (nums[mid] > target) {
+                tail = mid - 1;
+            } else {
+                head = mid + 1;
+            }
+        }
+        return -1;
+    }
 }

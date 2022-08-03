@@ -5,7 +5,10 @@ package github.beeclimb.binarysearch;
  * @date 2021/11/24
  * @leetcode 35. Search Insert Position
  */
-public class SearchInsertPosition {
+public class SearchInsertPosition_35 {
+    /**
+     * 找第一个大于等于 target 的下标
+     */
     public int searchInsert(int[] nums, int target) {
         int left, right, reference, referencePoint;
         left = 0;
