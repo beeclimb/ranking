@@ -126,15 +126,22 @@ public class MergeSort {
         int maxSize = 100;
         int maxValue = 100;
         System.out.println("测试开始");
+        QuickSort quickSort = new QuickSort();
         for (int i = 0; i < testTime; i++) {
             int[] arr1 = generateRandomArray(maxSize, maxValue);
             int[] arr2 = copyArray(arr1);
+            int[] arr3 = copyArray(arr1);
             mergeSort1(arr1);
             selectionSort(arr2);
-            if (!isEqual(arr1, arr2)) {
+            quickSort.quickSort(arr3);
+            printArray(arr1);
+            printArray(arr2);
+            printArray(arr3);
+            if (!isEqual(arr1, arr2) || !isEqual(arr1, arr3)) {
                 System.out.println("出错了！");
                 printArray(arr1);
                 printArray(arr2);
+                printArray(arr3);
                 break;
             }
         }
