@@ -4,7 +4,7 @@ package github.beeclimb.preview;
  * @author jun.ma
  * @date 2022/7/26 20:47:00
  */
-public class DoubleLinkedListToDeque {
+public class DoubleLinkedListToDequeAndStack {
 
     public static class Node<V> {
         public V value;

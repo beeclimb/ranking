@@ -11,10 +11,13 @@ public class LinkedList {
 
     public static void main(String[] args) {
         Node node1 = new Node(1);
-        node1.next = new Node(2);
+        node1.next = new Node(1);
         node1.next.next = new Node(3);
+        node1.next.next.next = new Node(5);
+        node1.next.next.next.next = new Node(1);
+        node1.next.next.next.next.next = new Node(1);
         System.out.println(getLinkedListOriginOrder(node1));
-        Node reversedNode = reverseLinkedList(node1);
+        Node reversedNode = removeValue(node1, 1);
         System.out.println(getLinkedListOriginOrder(reversedNode));
     }
 
@@ -61,6 +64,27 @@ public class LinkedList {
             head = next;
         }
         return pre;
+    }
+
+    public static Node removeValue(Node head, int num) {
+        while (head != null) {
+            if (head.value == num) {
+                head = head.next;
+            } else {
+                break;
+            }
+        }
+        Node pre = head;
+        Node cur = head;
+        while (cur != null) {
+            if (cur.value == num) {
+                pre.next = cur.next;
+            } else {
+                pre = cur;
+            }
+            cur = cur.next;
+        }
+        return head;
     }
 
     public static List<Integer> getLinkedListOriginOrder(Node head) {
