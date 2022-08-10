@@ -44,6 +44,31 @@ public class MergeSort {
         }
     }
 
+    public static void mergeSort2(int[] arr) {
+        if (arr == null || arr.length < 2) {
+            return;
+        }
+        int n = arr.length;
+        // 步长
+        int step = 1;
+        while (step < n) {
+            int l = 0;
+            while (l < n) {
+                if (step >= n - l) {
+                    break;
+                }
+                int m = l + step - 1;
+                int r = m + Math.min(step, n - m - 1);
+                merge(arr, l, m, r);
+                l = r + 1;
+            }
+            if (step > n / 2) {
+                break;
+            }
+            step <<= 1;
+        }
+    }
+
     // for test
     public static int[] generateRandomArray(int maxSize, int maxValue) {
         int[] arr = new int[(int) ((maxSize + 1) * Math.random())];
