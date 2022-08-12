@@ -4,7 +4,7 @@ package github.beeclimb.mergesort;
  * @date 2022/8/13 21:58
  * @leetcode 剑指 Offer 51. 数组中的逆序对
  */
-public class reversePairs_51 {
+public class ReversePairs_51 {
 
     class Solution {
         int ans = 0;
