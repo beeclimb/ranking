@@ -1,5 +1,7 @@
 package github.beeclimb.preview;
 
+import java.util.Random;
+
 /**
  * @author jun.ma
  * @date 2022/8/6 17:58
@@ -42,6 +44,49 @@ public class QuickSort {
         }
         process(arr, 0, arr.length - 1);
     }
+}
 
+class Solution {
+    public int[] sortArray(int[] nums) {
+        process(nums, 0, nums.length - 1);
+        return nums;
+    }
 
+    public int[] partition(int[] arr, int left, int right) {
+        // 随机选一个作为我们的主元
+        int i = new Random().nextInt(right - left + 1) + left;
+        swap(arr, right, i);
+        int l = left - 1;
+        int r = right;
+        int cur = left;
+        while (cur < r) {
+            if (arr[cur] < arr[right]) {
+                swap(arr, l + 1, cur);
+                ++l;
+                ++cur;
+            } else if (arr[cur] > arr[right]) {
+                swap(arr, r - 1, cur);
+                --r;
+            } else {
+                ++cur;
+            }
+        }
+        swap(arr, r, right);
+        return new int[]{l, r + 1};
+    }
+
+    public void process(int[] arr, int left, int right) {
+        if (left >= right) {
+            return;
+        }
+        int[] temp = partition(arr, left, right);
+        process(arr, left, temp[0]);
+        process(arr, temp[1], right);
+    }
+
+    public void swap(int[] arr, int i, int j) {
+        int tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp;
+    }
 }
