@@ -49,4 +49,47 @@ public class reversePairs_51 {
 
     }
 
+    class Solution2 {
+        int ans = 0;
+
+        public int reversePairs(int[] nums) {
+            if (nums == null || nums.length < 2) {
+                return 0;
+            }
+            process(nums, 0, nums.length - 1);
+            return ans;
+        }
+
+        public void merge(int[] arr, int left, int right, int mid) {
+            int[] help = new int[right - left + 1];
+            int l = mid;
+            int r = right;
+            int i = help.length - 1;
+            while (l >= left && r >= mid + 1) {
+                ans += arr[l] > arr[r] ? (r - mid) : 0;
+                help[i--] = arr[l] > arr[r] ? arr[l--] : arr[r--];
+            }
+            while (l >= left) {
+                help[i--] = arr[l--];
+            }
+            while (r >= mid + 1) {
+                help[i--] = arr[r--];
+            }
+            for (i = 0; i < help.length; ++i) {
+                arr[i + left] = help[i];
+            }
+        }
+
+        public void process(int[] arr, int left, int right) {
+            if (left >= right) {
+                return;
+            }
+            int mid = left + ((right - left) >> 1);
+            process(arr, left, mid);
+            process(arr, mid + 1, right);
+            merge(arr, left, right, mid);
+        }
+
+    }
+
 }
